@@ -21,8 +21,11 @@ export async function proxy(request: NextRequest) {
     }
     const isProtectedRoute = pathname.startsWith("/dashboard") || pathname.startsWith("/api/private");
     if (isProtectedRoute && !isAuthenticated) {
+        if (pathname.startsWith("/api/private")) {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
         const signInUrl = new URL("/sign-in", request.url);
-        signInUrl.searchParams.set("callbackUrl", pathname);
+        signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname + request.nextUrl.search);
         return NextResponse.redirect(signInUrl);
     }
     return NextResponse.next();
