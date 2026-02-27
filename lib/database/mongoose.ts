@@ -5,7 +5,7 @@ declare global {
     var mongooseCache: MongooseCache | undefined;
 }
 
-let cached: MongooseCache = global.mongooseCache || {
+const cached: MongooseCache = global.mongooseCache || {
     conn: null,
     promise: null,
 };
@@ -16,7 +16,7 @@ if (!global.mongooseCache) {
 
 const dbConnect = async (): Promise<typeof mongoose> => {
     if (!process.env.MongoDB_URI) {
-        throw new Error("Please define the DB_URI environment variable inside .env");
+        throw new Error("Please define the MongoDB_URI environment variable inside .env");
     }
     
     if (cached.conn) {

@@ -1,4 +1,6 @@
+type MongooseModule = typeof import("mongoose");
+
 export interface MongooseCache {
-    conn: typeof mongoose | null;
-    promise: Promise<typeof mongoose> | null;
+    conn: MongooseModule | null;
+    promise: Promise<MongooseModule> | null;
 }
