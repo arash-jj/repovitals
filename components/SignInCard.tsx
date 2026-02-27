@@ -70,29 +70,37 @@ const SignInCard = () => {
         )}
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label>Email</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
+              id="email"
               type="email"
               placeholder="carl@yahoo.com"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
               {...register("email")}
             />
             {errors.email && (
-              <p className="text-sm text-destructive">
+              <p id="email-error" className="text-sm text-destructive">
                 {errors.email.message}
               </p>
             )}
           </div>
           <div className="space-y-2">
-            <Label>Password</Label>
+            <Label htmlFor="password">Password</Label>
             <Input
+              id="password"
               type="password"
               placeholder="********"
+              aria-invalid={!!errors.password}
+              aria-describedby={errors.password ? "password-error" : undefined}
               {...register("password")}
             />
             {errors.password && (
-              <p className="text-sm text-destructive">
+              <p id="password-error" className="text-sm text-destructive">
                 {errors.password.message}
               </p>
+            )}
+          </div>
             )}
           </div>
         </CardContent>
