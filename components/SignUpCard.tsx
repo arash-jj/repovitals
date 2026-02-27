@@ -67,40 +67,64 @@ const SignUpCard = () => {
         )}
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label>Name</Label>
-            <Input {...register("name")} />
+            <Label htmlFor="name">Name</Label>
+            <Input
+              id="name"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? "name-error" : undefined}
+              {...register("name")}
+            />
             {errors.name && (
-              <p className="text-sm text-destructive">
+              <p id="name-error" className="text-sm text-destructive">
                 {errors.name.message}
               </p>
             )}
           </div>
           <div className="space-y-2">
-            <Label>Email</Label>
-            <Input type="email" {...register("email")} />
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? "email-error" : undefined}
+              {...register("email")}
+            />
             {errors.email && (
-              <p className="text-sm text-destructive">
+              <p id="email-error" className="text-sm text-destructive">
                 {errors.email.message}
               </p>
             )}
           </div>
           <div className="space-y-2">
-            <Label>Password</Label>
-            <Input type="password" {...register("password")} />
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              type="password"
+              aria-invalid={!!errors.password}
+              aria-describedby={errors.password ? "password-error" : undefined}
+              {...register("password")}
+            />
             {errors.password && (
-              <p className="text-sm text-destructive">
+              <p id="password-error" className="text-sm text-destructive">
                 {errors.password.message}
               </p>
             )}
           </div>
           <div className="space-y-2">
-            <Label>Confirm Password</Label>
-            <Input type="password" {...register("confirmPassword")} />
+            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Input
+              id="confirmPassword"
+              type="password"
+              aria-invalid={!!errors.confirmPassword}
+              aria-describedby={errors.confirmPassword ? "confirm-password-error" : undefined}
+              {...register("confirmPassword")}
+            />
             {errors.confirmPassword && (
-              <p className="text-sm text-destructive">
+              <p id="confirm-password-error" className="text-sm text-destructive">
                 {errors.confirmPassword.message}
               </p>
             )}
+          </div>
           </div>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
