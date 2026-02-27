@@ -14,7 +14,13 @@ const client = new MongoClient(DB_URI);
 const db = client.db();
 
 export const auth = betterAuth({
-    secret: process.env.BETTER_AUTH_SECRET!,
+const BETTER_AUTH_SECRET = process.env.BETTER_AUTH_SECRET;
+if (!BETTER_AUTH_SECRET) {
+    throw new Error("Please define BETTER_AUTH_SECRET environment variable inside .env");
+}
+
+export const auth = betterAuth({
+    secret: BETTER_AUTH_SECRET,
     baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
     database: mongodbAdapter(db, { client }),
     session: {
@@ -28,10 +34,10 @@ export const auth = betterAuth({
     },
 });
 
-export async function getSession() {
+export async function getSession(incomingHeaders?: Headers) {
     try {
         const session = await auth.api.getSession({
-            headers: await headers(),
+            headers: incomingHeaders ?? await headers(),
         });
         return session;
     } catch (error) {
