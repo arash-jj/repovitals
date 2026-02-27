@@ -125,7 +125,6 @@ const SignUpCard = () => {
               </p>
             )}
           </div>
-          </div>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
           <Button disabled={isSubmitting} type="submit" className="w-full">

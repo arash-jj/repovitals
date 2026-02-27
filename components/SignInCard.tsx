@@ -53,7 +53,6 @@ const SignInCard = () => {
       setServerError("Something went wrong. Please try again.")
     }
   }
-  }
   return (
     <Card className="w-full max-w-md border-gray-200 shadow-lg">
       <CardHeader className="space-y-1">
@@ -99,8 +98,6 @@ const SignInCard = () => {
               <p id="password-error" className="text-sm text-destructive">
                 {errors.password.message}
               </p>
-            )}
-          </div>
             )}
           </div>
         </CardContent>
