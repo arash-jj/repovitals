@@ -36,7 +36,8 @@ const SignUpCard = () => {
   })
   const onSubmit = async (data: SignUpFormValues) => {
     setServerError("")
-    const result = await signUp.email({
+    try {
+      const result = await signUp.email({
       name: data.name,
       email: data.email,
       password: data.password,
@@ -46,6 +47,9 @@ const SignUpCard = () => {
       return
     }
     router.push("/dashboard")
+    } catch (error) {
+      setServerError("Something went wrong. Please try again.")
+    }
   }
   return (
     <Card className="w-full max-w-md border-gray-200 shadow-lg">
