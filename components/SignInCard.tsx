@@ -39,15 +39,20 @@ const SignInCard = () => {
 
   const onSubmit = async (data: SignInFormValues) => {
     setServerError("")
-    const result = await signIn.email({
-      email: data.email,
-      password: data.password,
-    })
-    if (result.error) {
-      setServerError(result.error.message ?? "Failed to sign in")
-      return
+    try {
+      const result = await signIn.email({
+        email: data.email,
+        password: data.password,
+      })
+      if (result.error) {
+        setServerError(result.error.message ?? "Failed to sign in")
+        return
+      }
+      router.push("/dashboard")
+    } catch {
+      setServerError("Something went wrong. Please try again.")
     }
-    router.push("/dashboard")
+  }
   }
   return (
     <Card className="w-full max-w-md border-gray-200 shadow-lg">
