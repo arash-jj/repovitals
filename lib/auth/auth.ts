@@ -34,10 +34,10 @@ export const auth = betterAuth({
     },
 });
 
-export async function getSession() {
+export async function getSession(incomingHeaders?: Headers) {
     try {
         const session = await auth.api.getSession({
-            headers: await headers(),
+            headers: incomingHeaders ?? await headers(),
         });
         return session;
     } catch (error) {
