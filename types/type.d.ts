@@ -63,3 +63,8 @@ export interface GitHubRepoData {
     subscribers_count: number
     network_count: number  // forks count
 }
+
+export interface RepoInputProps {
+    onAnalyze: (owner: string, repo: string) => void
+    isLoading?: boolean
+}
