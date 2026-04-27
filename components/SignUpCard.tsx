@@ -102,6 +102,7 @@ const SignUpCard = () => {
               type="password"
               aria-invalid={!!errors.password}
               aria-describedby={errors.password ? "password-error" : undefined}
+              data-testid="password-input" 
               {...register("password")}
             />
             {errors.password && (
@@ -117,6 +118,7 @@ const SignUpCard = () => {
               type="password"
               aria-invalid={!!errors.confirmPassword}
               aria-describedby={errors.confirmPassword ? "confirm-password-error" : undefined}
+              data-testid="confirm-password-input"
               {...register("confirmPassword")}
             />
             {errors.confirmPassword && (
