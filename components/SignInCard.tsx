@@ -92,6 +92,7 @@ const SignInCard = () => {
               placeholder="********"
               aria-invalid={!!errors.password}
               aria-describedby={errors.password ? "password-error" : undefined}
+              data-testid="signin-password-input"
               {...register("password")}
             />
             {errors.password && (
