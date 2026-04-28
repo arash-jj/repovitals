@@ -74,3 +74,55 @@ export interface HealthDonutChartProps {
     size?: number
 }
 
+export interface VitalityMetrics {
+    recentActivity: {
+        value: string
+        status: "excellent" | "good" | "warning" | "critical"
+        message: string
+    }
+    commitFrequency: {
+        value: number
+        status: string
+        message: string
+    }
+    issueVelocity: {
+        value: number
+        status: string
+        message: string
+    }
+    prVelocity: {
+        value: number
+        status: string
+        message: string
+    }
+    score: number
+}
+
+export interface CommunityMetrics {
+    stars: { value: number; trend: number }
+    forks: { value: number; trend: number }
+    contributors: { value: number; trend: number }
+    score: number
+}
+
+export interface CodeHealthMetrics {
+    hasLicense: boolean
+    licenseType: string | null
+    isOsiApproved: boolean
+    topics: string[]
+    hasDescription: boolean
+    hasReadme: boolean
+    score: number
+}
+
+export interface RepoAnalysis {
+    repoFullName: string
+    description: string | null
+    stars: number
+    forks: number
+    contributors: number
+    overallHealth: number
+    vitality: VitalityMetrics
+    community: CommunityMetrics
+    codeHealth: CodeHealthMetrics
+}
