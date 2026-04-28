@@ -68,3 +68,9 @@ export interface RepoInputProps {
     onAnalyze: (owner: string, repo: string) => void
     isLoading?: boolean
 }
+
+export interface HealthDonutChartProps {
+    score: number
+    size?: number
+}
+
