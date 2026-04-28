@@ -46,32 +46,34 @@ const RepoInput = ({ onAnalyze, isLoading = false }: RepoInputProps) => {
         
         onAnalyze(owner, repo)
     }
-    <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-2">
-            <Input
-            type="text"
-            placeholder="facebook/react or https://github.com/vercel/next.js"
-            value={inputValue}
-            onChange={handleInputChange}
-            className={error ? "border-red-500" : isValid ? "border-green-500" : ""}
-            disabled={isLoading}
-            />
-            {error && (
-                <p className="text-sm text-red-500">{error}</p>
-            )}
-            {isValid && !error && inputValue && (
-            <p className="text-sm text-green-500">
-                ✓ Valid GitHub repository
-            </p>
-            )}
-            <p className="text-xs text-muted-foreground">
-                Examples: facebook/react, vercel/next.js, or paste full GitHub URL
-            </p>
-        </div>
-        <Button type="submit" disabled={!isValid || isLoading} className="w-full">
-            {isLoading ? "Analyzing..." : "Check Repository Health"}
-        </Button>
-    </form>
+    return (
+        <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+                <Input
+                type="text"
+                placeholder="facebook/react or https://github.com/vercel/next.js"
+                value={inputValue}
+                onChange={handleInputChange}
+                className={error ? "border-red-500" : isValid ? "border-green-500" : ""}
+                disabled={isLoading}
+                />
+                {error && (
+                    <p className="text-sm text-red-500">{error}</p>
+                )}
+                {isValid && !error && inputValue && (
+                <p className="text-sm text-green-500">
+                    ✓ Valid GitHub repository
+                </p>
+                )}
+                <p className="text-xs text-muted-foreground">
+                    Examples: facebook/react, vercel/next.js, or paste full GitHub URL
+                </p>
+            </div>
+            <Button type="submit" disabled={!isValid || isLoading} className="w-full">
+                {isLoading ? "Analyzing..." : "Check Repository Health"}
+            </Button>
+        </form>
+    )
 }
 
 export default RepoInput

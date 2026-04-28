@@ -87,3 +87,32 @@ export function extractRepoInfo(input: string): RepoInfo | null {
     
     return await response.json()
 }
+
+export async function fetchCommitActivity(owner: string, repo: string) {
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/stats/commit_activity`)
+    const data = await res.json()
+    return data.map((week: any) => ({
+        date: new Date(week.week * 1000).toLocaleDateString(),
+        commits: week.total
+    }))
+}
+
+export async function fetchIssues(owner: string, repo: string) {
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/issues?state=closed&per_page=100`)
+    const issues = await res.json()
+    
+    const resolutionTimes = issues.map((issue: any) => {
+        const created = new Date(issue.created_at)
+        const closed = new Date(issue.closed_at)
+        return (closed.getTime() - created.getTime()) / (1000 * 60 * 60 * 24)
+    })
+    
+    const avgTime = resolutionTimes.reduce((a: number, b: number) => a + b, 0) / resolutionTimes.length
+    return { avgTime: avgTime.toFixed(1), total: issues.length }
+}
+
+export async function fetchStarHistory(owner: string, repo: string) {
+    const res = await fetch(`https://api.star-history.com/json?owner=${owner}&name=${repo}`)
+    const data = await res.json()
+    return data
+}

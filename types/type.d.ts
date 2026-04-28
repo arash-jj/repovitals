@@ -126,3 +126,8 @@ export interface RepoAnalysis {
     community: CommunityMetrics
     codeHealth: CodeHealthMetrics
 }
+
+export interface CommitData {
+    date: string
+    commits: number
+}
