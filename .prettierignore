@@ -1,0 +1,16 @@
+.next
+out
+build
+dist
+coverage
+node_modules
+cypress/videos
+cypress/screenshots
+.next
+*.lock
+package-lock.json
+.DS_Store
+*.log
+.env
+.env.local
+.env.*.local
