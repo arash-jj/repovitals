@@ -38,15 +38,15 @@ const SignUpCard = () => {
     setServerError("")
     try {
       const result = await signUp.email({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-    })
-    if (result.error) {
-      setServerError(result.error.message ?? "Failed to sign up")
-      return
-    }
-    router.push("/dashboard")
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      })
+      if (result.error) {
+        setServerError(result.error.message ?? "Failed to sign up")
+        return
+      }
+      router.push("/dashboard")
     } catch (error) {
       setServerError("Something went wrong. Please try again.")
     }
@@ -55,9 +55,7 @@ const SignUpCard = () => {
     <Card className="w-full max-w-md border-gray-200 shadow-lg">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold">Create Account</CardTitle>
-        <CardDescription>
-          Enter your details to create an account
-        </CardDescription>
+        <CardDescription>Enter your details to create an account</CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {serverError && (
@@ -102,7 +100,7 @@ const SignUpCard = () => {
               type="password"
               aria-invalid={!!errors.password}
               aria-describedby={errors.password ? "password-error" : undefined}
-              data-testid="password-input" 
+              data-testid="password-input"
               {...register("password")}
             />
             {errors.password && (
@@ -134,11 +132,9 @@ const SignUpCard = () => {
           </Button>
           <p className="text-center text-sm text-secondary-foreground">
             Already have an account?
-            <Link
-              href="/sign-in"
-              className="font-medium text-primary hover:underline"
-            >
-              {" "}Sign in
+            <Link href="/sign-in" className="font-medium text-primary hover:underline">
+              {" "}
+              Sign in
             </Link>
           </p>
         </CardFooter>

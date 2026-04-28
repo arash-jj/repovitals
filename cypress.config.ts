@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from "cypress"
 
 export default defineConfig({
   e2e: {
@@ -11,7 +11,7 @@ export default defineConfig({
     requestTimeout: 10000,
     watchForFileChanges: false,
     setupNodeEvents(on, config) {
-      return config;
+      return config
     },
   },
 
@@ -27,4 +27,4 @@ export default defineConfig({
       bundler: "webpack",
     },
   },
-});
+})
