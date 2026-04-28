@@ -22,8 +22,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { signInSchema } from "@/lib/validations/auth"
 
-
-
 type SignInFormValues = z.infer<typeof signInSchema>
 
 const SignInCard = () => {
@@ -103,20 +101,14 @@ const SignInCard = () => {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <Button
-            disabled={isSubmitting}
-            type="submit"
-            className="w-full"
-          >
+          <Button disabled={isSubmitting} type="submit" className="w-full">
             {isSubmitting ? "Signing in..." : "Sign In"}
           </Button>
           <p className="text-center text-sm text-secondary-foreground">
             Don’t have an account?
-            <Link
-              href="/sign-up"
-              className="font-medium text-primary hover:underline"
-            >
-              {" "}Sign up
+            <Link href="/sign-up" className="font-medium text-primary hover:underline">
+              {" "}
+              Sign up
             </Link>
           </p>
         </CardFooter>
