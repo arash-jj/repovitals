@@ -143,3 +143,7 @@ npm run test:e2e:open
 ```
 
 ---
+
+### Deployment and Live demo
+
+Due to the nationwide Iranian internet outage and lack of free access to the international internet due to whistling, Deployment and Live deme have been postponed.
