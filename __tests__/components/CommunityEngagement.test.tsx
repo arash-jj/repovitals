@@ -11,7 +11,7 @@ const mockCommunityData = {
 describe("CommunityEngagement", () => {
   it("renders the component with score", () => {
     render(<CommunityEngagement data={mockCommunityData} />)
-    expect(screen.getByText("92")).toBeInTheDocument()
+    expect(screen.getByText("92/100")).toBeInTheDocument()
     expect(screen.getByText(/Community Engagement/i)).toBeInTheDocument()
   })
 
