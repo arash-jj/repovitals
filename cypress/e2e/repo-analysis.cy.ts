@@ -1,6 +1,6 @@
 describe("Repo Analysis Flow", () => {
   beforeEach(() => {
-    cy.visit("/")
+    cy.visit("/dashboard")
   })
 
   it("should display repo input form", () => {

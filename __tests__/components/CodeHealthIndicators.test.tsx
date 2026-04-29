@@ -14,7 +14,7 @@ const mockCodeHealthData = {
 describe("CodeHealthIndicators", () => {
   it("renders the component with score", () => {
     render(<CodeHealthIndicators data={mockCodeHealthData} />)
-    expect(screen.getByText("65")).toBeInTheDocument()
+    expect(screen.getByText("65/100")).toBeInTheDocument()
     expect(screen.getByText(/Code Health Indicators/i)).toBeInTheDocument()
   })
 

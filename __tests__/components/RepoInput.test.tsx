@@ -24,7 +24,7 @@ describe("RepoInput", () => {
     await user.tab()
     
     await waitFor(() => {
-      expect(screen.getByText(/Enter a GitHub repository/i)).toBeInTheDocument()
+      expect(screen.getByText(/Enter a GitHub repo/i)).toBeInTheDocument()
     })
   })
 

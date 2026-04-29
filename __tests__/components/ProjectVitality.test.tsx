@@ -28,7 +28,7 @@ const mockVitalityData = {
 describe("ProjectVitality", () => {
   it("renders the component with score", () => {
     render(<ProjectVitality data={mockVitalityData} />)
-    expect(screen.getByText("85")).toBeInTheDocument()
+    expect(screen.getByText("85/100")).toBeInTheDocument()
     expect(screen.getByText(/Project Vitality/i)).toBeInTheDocument()
   })
 
