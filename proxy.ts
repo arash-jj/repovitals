@@ -3,7 +3,7 @@ import { getSession } from "./lib/auth/auth"
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const session = await getSession()
+  // const session = await getSession()
   // const isAuthenticated = !!session?.user;
   const isAuthenticated = true // for demo all the users are authenticated
   if (pathname === "/") {
