@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 RepoVitals
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+**GitHub Repository Health Intelligence Platform**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16.0-000000?logo=next.js)](https://nextjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?logo=mongodb)](https://www.mongodb.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
+[![Jest](https://img.shields.io/badge/Jest-30.0-C21325?logo=jest)](https://jestjs.io/)
+[![Cypress](https://img.shields.io/badge/Cypress-15.0-17202C?logo=cypress)](https://www.cypress.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Testing](#testing)
+
+---
+
+## 🎯 Overview
+
+**RepoVitals** is a comprehensive GitHub repository health analysis platform that provides deep insights into open-source project quality, community engagement, and maintainability. Unlike basic metrics tools, RepoVitals aggregates multiple data points into actionable health scores.
+
+### Why RepoVitals?
+
+| Traditional Metrics     | RepoVitals                   |
+| ----------------------- | ---------------------------- |
+| ❌ Just stars and forks | ✅ Multi-dimensional scoring |
+| ❌ No trend analysis    | ✅ Week-over-week trends     |
+| ❌ Manual evaluation    | ✅ Automated health scores   |
+| ❌ Scattered data       | ✅ Unified dashboard         |
+
+---
+
+## ✨ Features
+
+### Core Metrics
+
+| Category                 | Metrics                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| **Project Vitality**     | Commit frequency, Issue resolution velocity, PR merge time, Recent activity   |
+| **Community Engagement** | Star growth trends, Fork distribution, Contributor activity, Social proof     |
+| **Code Health**          | License compliance, Documentation quality, Topic coverage, Language diversity |
+
+### Technical Capabilities
+
+- 🔐 **Complete Authentication** — Better Auth integration with session management
+- 📊 **Interactive Visualizations** — Real-time charts and donut metrics
+- 🎯 **Smart Validation** — Zod-powered form validation
+- 📱 **Responsive Design** — Tailwind CSS with dark mode support
+- 🧪 **Comprehensive Testing** — 84% coverage with Jest + Cypress
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+| Technology   | Purpose                         |
+| ------------ | ------------------------------- |
+| Next.js 16   | React framework with App Router |
+| TypeScript 5 | Type safety                     |
+| Tailwind CSS | Utility-first styling           |
+| shadcn/ui    | Component library               |
+| Recharts     | Data visualization              |
+
+### Backend
+
+| Technology         | Purpose              |
+| ------------------ | -------------------- |
+| Next.js API Routes | Serverless endpoints |
+| MongoDB Atlas      | Database             |
+| Better Auth        | Authentication       |
+| Zod                | Schema validation    |
+
+### Testing & Quality
+
+| Technology        | Purpose                |
+| ----------------- | ---------------------- |
+| Jest + RTL        | Unit/integration tests |
+| Cypress           | E2E testing            |
+| ESLint + Prettier | Code quality           |
+
+---
+
+### Environment Variables
+
+```env
+
+MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_SECRET=your_secret_key
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Clone repository
+git clone https://github.com/arash-jj/repovitals.git
+cd repovitals
 
-## Learn More
+# Install dependencies
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Run development server
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Open http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Run unit/integration tests
+npm test
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Watch mode
+npm run test:watch
+
+# Coverage report
+npm run test:coverage
+
+# E2E tests
+npm run test:e2e
+
+# Open Cypress UI
+npm run test:e2e:open
+```
+
+---

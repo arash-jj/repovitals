@@ -18,11 +18,11 @@ describe("RepoInput", () => {
   it("validates GitHub URL format", async () => {
     const user = userEvent.setup()
     render(<RepoInput onAnalyze={mockOnAnalyze} isLoading={false} />)
-    
+
     const input = screen.getByPlaceholderText(/github\.com/i)
     await user.type(input, "invalid-input")
     await user.tab()
-    
+
     await waitFor(() => {
       expect(screen.getByText(/Enter a GitHub repo/i)).toBeInTheDocument()
     })
@@ -31,10 +31,10 @@ describe("RepoInput", () => {
   it("accepts valid owner/repo format", async () => {
     const user = userEvent.setup()
     render(<RepoInput onAnalyze={mockOnAnalyze} isLoading={false} />)
-    
+
     const input = screen.getByPlaceholderText(/github\.com/i)
     await user.type(input, "facebook/react")
-    
+
     await waitFor(() => {
       expect(screen.getByText(/Valid GitHub repository/i)).toBeInTheDocument()
     })
@@ -43,10 +43,10 @@ describe("RepoInput", () => {
   it("accepts full GitHub URL format", async () => {
     const user = userEvent.setup()
     render(<RepoInput onAnalyze={mockOnAnalyze} isLoading={false} />)
-    
+
     const input = screen.getByPlaceholderText(/github\.com/i)
     await user.type(input, "https://github.com/vercel/next.js")
-    
+
     await waitFor(() => {
       expect(screen.getByText(/Valid GitHub repository/i)).toBeInTheDocument()
     })
@@ -55,13 +55,13 @@ describe("RepoInput", () => {
   it("calls onAnalyze with owner and repo on submit", async () => {
     const user = userEvent.setup()
     render(<RepoInput onAnalyze={mockOnAnalyze} isLoading={false} />)
-    
+
     const input = screen.getByPlaceholderText(/github\.com/i)
     await user.type(input, "facebook/react")
-    
+
     const button = screen.getByRole("button", { name: /Check Repository Health/i })
     await user.click(button)
-    
+
     expect(mockOnAnalyze).toHaveBeenCalledWith("facebook", "react")
   })
 
