@@ -1,3 +1,3 @@
 # Features
 
-- [ ] Authentication
+- [ ] Feature falg to turn off authentication in demo
